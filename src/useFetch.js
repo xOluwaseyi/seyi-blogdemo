@@ -13,10 +13,24 @@ const useFetch = (url) => {
         if (!res.ok) {
           throw Error("Could not fetch data!");
         }
+
         return res.json();
       })
       .then((data) => {
-        setData(data);
+        console.log(data);
+        const newData = [];
+
+        for (const key in data) {
+          newData.push({
+            id: key,
+            title: data[key].title,
+            body: data[key].body,
+            author: data[key].author,
+          });
+        }
+
+        console.log(newData);
+        setData(newData);
         setIsLoading(false);
         setError(null);
       })

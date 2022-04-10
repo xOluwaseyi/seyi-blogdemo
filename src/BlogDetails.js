@@ -9,18 +9,9 @@ const BlogDetails = () => {
     data: blog,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs/" + id);
-  // const history = useHistory();
-
-  // const handleDelete = (e) => {
-  //   e.preventDefault();
-
-  //   fetch("http://localhost:8000/blogs/" + blog.id, {
-  //     method: "DELETE",
-  //   }).then(() => {
-  //     history.push("/");
-  //   });
-  // };
+  } = useFetch(
+    "https://seyiblog-58223-default-rtdb.firebaseio.com/blogs.json/" + id
+  );
 
   return (
     <div className="blog-details">
@@ -35,7 +26,6 @@ const BlogDetails = () => {
             </p>
           </div>
           <div>{blog.body}</div>
-          {/* <button onClick={handleDelete}>Delete Blog</button> */}
         </article>
       )}
     </div>
@@ -43,3 +33,15 @@ const BlogDetails = () => {
 };
 
 export default BlogDetails;
+
+// const history = useHistory();
+
+// const handleDelete = (e) => {
+//   e.preventDefault();
+
+//   fetch("http://localhost:8000/blogs/" + blog.id, {
+//     method: "DELETE",
+//   }).then(() => {
+//     history.push("/");
+//   });
+// };

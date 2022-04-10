@@ -6,7 +6,7 @@ const Home = () => {
     data: blogs,
     isLoading,
     error,
-  } = useFetch("http://localhost:8000/blogs");
+  } = useFetch("https://seyiblog-58223-default-rtdb.firebaseio.com/blogs.json");
   return (
     <div className="home">
       {error && <p>{error}</p>}
