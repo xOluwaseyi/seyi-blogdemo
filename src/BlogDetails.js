@@ -9,9 +9,7 @@ const BlogDetails = () => {
     data: blog,
     isPending,
     error,
-  } = useFetch(
-    "https://seyiblog-58223-default-rtdb.firebaseio.com/blogs.json/" + id
-  );
+  } = useFetch("http://localhost:8000/blogs/" + id);
 
   return (
     <div className="blog-details">

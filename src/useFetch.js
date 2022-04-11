@@ -17,20 +17,7 @@ const useFetch = (url) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        const newData = [];
-
-        for (const key in data) {
-          newData.push({
-            id: key,
-            title: data[key].title,
-            body: data[key].body,
-            author: data[key].author,
-          });
-        }
-
-        console.log(newData);
-        setData(newData);
+        setData(data);
         setIsLoading(false);
         setError(null);
       })

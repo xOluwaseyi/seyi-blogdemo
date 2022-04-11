@@ -15,7 +15,7 @@ const Create = () => {
 
     setIsPending(true);
 
-    fetch("https://seyiblog-58223-default-rtdb.firebaseio.com/blogs.json", {
+    fetch("http://localhost:8000/blogs/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
