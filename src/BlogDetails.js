@@ -9,7 +9,7 @@ const BlogDetails = () => {
     data: blog,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs/" + id);
+  } = useFetch("https://seyibackend.herokuapp.com/blogs/" + id);
 
   return (
     <div className="blog-details">
