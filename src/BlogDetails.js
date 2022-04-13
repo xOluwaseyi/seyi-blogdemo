@@ -2,6 +2,7 @@ import React from "react";
 // import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
+// import cors from "cors";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -9,7 +10,9 @@ const BlogDetails = () => {
     data: blog,
     isPending,
     error,
-  } = useFetch("https://seyibackend.herokuapp.com/blogs/" + id);
+  } = useFetch(
+    "https://seyiblog-58223-default-rtdb.firebaseio.com/blogs.json/" + id
+  );
 
   return (
     <div className="blog-details">

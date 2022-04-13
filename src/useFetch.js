@@ -17,7 +17,18 @@ const useFetch = (url) => {
         return res.json();
       })
       .then((data) => {
-        setData(data);
+        const newData = [];
+
+        for (const key in data) {
+          newData.push({
+            id: key,
+            author: data[key].author,
+            body: data[key].body,
+            title: data[key].title,
+          });
+        }
+
+        setData(newData);
         setIsLoading(false);
         setError(null);
       })
