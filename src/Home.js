@@ -6,7 +6,7 @@ const Home = () => {
     data: blogs,
     isLoading,
     error,
-  } = useFetch("https://seyibackend.herokuapp.com/blogs");
+  } = useFetch("https://seyiblogbackend.herokuapp.com/blogs");
   return (
     <div className="home">
       {error && <p>{error}</p>}
