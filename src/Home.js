@@ -6,12 +6,24 @@ const Home = () => {
     data: blogs,
     isLoading,
     error,
-  } = useFetch("https://seyiblogbackend.herokuapp.com/blogs");
+  } = useFetch("https://seyibackend.herokuapp.com/seyiblog");
+
+  let bloggers = [];
+
+  for (const key in blogs) {
+    bloggers.push({
+      id: Number(key),
+      title: blogs[key].title,
+      author: blogs[key].author,
+      body: blogs[key].body,
+    });
+  }
+
   return (
     <div className="home">
       {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
-      {blogs && <BlogList blogs={blogs} title="All Blogs!" />}
+      {blogs && <BlogList blogs={bloggers} title="All Blogs!" />}
     </div>
   );
 };

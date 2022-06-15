@@ -15,7 +15,7 @@ const Create = () => {
 
     setIsPending(true);
 
-    fetch("https://seyiblogbackend.herokuapp.com/blogs", {
+    fetch("https://seyiblog-58223-default-rtdb.firebaseio.com/blogs.json", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),

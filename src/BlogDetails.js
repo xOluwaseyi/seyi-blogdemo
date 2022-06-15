@@ -4,26 +4,43 @@ import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const BlogDetails = () => {
-  const { id } = useParams();
+  const params = useParams();
   const {
-    data: blog,
-    isPending,
+    data: blogs,
+    isLoading,
     error,
-  } = useFetch("https://seyiblogbackend.herokuapp.com/blogs/" + id);
+  } = useFetch(`https://seyibackend.herokuapp.com/seyiblog`);
+
+  let bloggers = [];
+
+  for (const key in blogs) {
+    bloggers.push({
+      id: Number(key),
+      title: blogs[key].title,
+      author: blogs[key].author,
+      body: blogs[key].body,
+    });
+  }
+
+  function getBlog(id) {
+    return bloggers.find((blogger) => blogger.id === id);
+  }
+
+  let blogData = getBlog(Number(params.blogid));
 
   return (
     <div className="blog-details">
-      {isPending && <div>Loading...</div>}
+      {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
-      {blog && (
+      {blogs && (
         <article>
           <div className="blogd-head">
-            <h2>{blog.title}</h2>
+            <h2>{blogData.title}</h2>
             <p>
-              Written by - <strong> {blog.author}</strong>
+              Written by - <strong> {blogData.author}</strong>
             </p>
           </div>
-          <div>{blog.body}</div>
+          <div>{blogData.body}</div>
         </article>
       )}
     </div>
